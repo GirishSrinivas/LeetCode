@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RichestCustomerBruteforceTest {
-    RichestCustomerBruteForce rcb = new RichestCustomerBruteForce();;
+    RichestCustomerBruteForce rcb = new RichestCustomerBruteForce();
 
     @Test
     public void TestMaximumWealthNullCheck() {
