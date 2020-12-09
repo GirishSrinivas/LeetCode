@@ -1,17 +1,27 @@
 package com.girish.test.bruteforce;
 
 import com.girish.bruteforce.RichestCustomerBruteForce;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class RichestCustomerBruteforceTest {
     RichestCustomerBruteForce rcb = new RichestCustomerBruteForce();
+
+    @BeforeAll
+    public static void initAll() {
+        System.out.println("Before All test cases...");
+    }
+
+    @BeforeEach
+    public void init() {
+        System.out.println("Before test case...");
+    }
 
     /**
      * This test checks if the 2D array passed has null value
      */
     @Test
     public void TestMaximumWealthNullCheck() {
+        System.out.println("TestMaximumWealthNullCheck()");
         int result = rcb.maximumWealth(null);
         Assertions.assertEquals(0, result, "Test Passed!");
     }
@@ -21,6 +31,7 @@ public class RichestCustomerBruteforceTest {
      */
     @Test
     public void TestMaximumWealthColNullCheck() {
+        System.out.println("TestMaximumWealthColNullCheck()");
         int[][] accounts = new int[5][];
         int result = rcb.maximumWealth(accounts);
         Assertions.assertEquals(0, result, "Test Passed!");
@@ -32,6 +43,7 @@ public class RichestCustomerBruteforceTest {
      */
     @Test
     public void TestMaximumWealthWithinBoundaryCheck() {
+        System.out.println("TestMaximumWealthWithinBoundaryCheck()");
         int[][] accounts = new int[50][50];
         int result = rcb.maximumWealth(accounts);
         Assertions.assertEquals(1, result, "Test Passed!");
@@ -43,6 +55,7 @@ public class RichestCustomerBruteforceTest {
      */
     @Test
     public void TestMaximumWealthMaxBoundaryCheck() {
+        System.out.println("TestMaximumWealthMaxBoundaryCheck()");
         int[][] accounts = new int[51][51];
         int result = rcb.maximumWealth(accounts);
         Assertions.assertEquals(0, result, "Test Passed!");
@@ -54,6 +67,7 @@ public class RichestCustomerBruteforceTest {
      */
     @Test
     public void TestMaximumWealthMinBoundaryCheck() {
+        System.out.println("TestMaximumWealthMinBoundaryCheck()");
         int[][] accounts = new int[0][0];
         int result = rcb.maximumWealth(accounts);
         Assertions.assertEquals(0, result, "Test Passed!");
@@ -67,9 +81,19 @@ public class RichestCustomerBruteforceTest {
      */
     @Test
     public void TestMaximumWealthMiscBoundaryCheck() {
+        System.out.println("TestMaximumWealthMiscBoundaryCheck()");
         int[][] accounts = new int[1][0];
         int result = rcb.maximumWealth(accounts);
         Assertions.assertEquals(0, result, "Test Passed!");
     }
 
+    @AfterEach
+    public void tearDownEach() {
+        System.out.println("Teardown Test...");
+    }
+
+    @AfterAll
+    public static void tearDownAll() {
+        System.out.println("After all test cases...");
+    }
 }

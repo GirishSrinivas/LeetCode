@@ -7,15 +7,13 @@ public class RichestCustomerBruteForce {
         int n;
 
         if(accounts != null) {
-            try {
+            if (accounts.length > 0 && accounts[0] != null) {
                 m = accounts.length;
                 n = accounts[0].length;
                 if (m <= 50 && (n > 0 && n <= 50)) {
                     System.out.println("Logic in action...");
                     maxWealth = 1;
                 }
-            } catch (Exception e) {
-                return maxWealth;
             }
         }
         return maxWealth;
