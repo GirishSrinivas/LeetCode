@@ -20,6 +20,8 @@ public class RichestCustomerBruteforceTest {
      * This test checks if the 2D array passed has null value
      */
     @Test
+//    @Disabled
+//    @Tag("RichestCustomerBruteforce")
     public void TestMaximumWealthNullCheck() {
         System.out.println("TestMaximumWealthNullCheck()");
         int result = rcb.maximumWealth(null);
@@ -46,7 +48,7 @@ public class RichestCustomerBruteforceTest {
         System.out.println("TestMaximumWealthWithinBoundaryCheck()");
         int[][] accounts = new int[50][50];
         int result = rcb.maximumWealth(accounts);
-        Assertions.assertEquals(1, result, "Test Passed!");
+        Assertions.assertEquals(0, result, "Test Passed!");
     }
 
     /**
@@ -85,6 +87,35 @@ public class RichestCustomerBruteforceTest {
         int[][] accounts = new int[1][0];
         int result = rcb.maximumWealth(accounts);
         Assertions.assertEquals(0, result, "Test Passed!");
+    }
+
+    @Test
+    public void TestMaximumWealth2x3Data() {
+        System.out.println("TestMaximumWealth2x3Data()");
+        int[][] accounts = {{1,2,3},
+                            {3,2,1}};
+        int result = rcb.maximumWealth(accounts);
+        Assertions.assertEquals(6, result);
+    }
+
+    @Test
+    public void TestMaximumWealth3x2Data() {
+        System.out.println("TestMaximumWealth3x2Data()");
+        int[][] accounts = {{1,5},
+                {7,3},
+                {3,5}};
+        int result = rcb.maximumWealth(accounts);
+        Assertions.assertEquals(10, result);
+    }
+
+    @Test
+    public void TestMaximumWealth3x3Data() {
+        System.out.println("TestMaximumWealth3x3Data()");
+        int[][] accounts = {{2,8,7},
+                            {7,1,3},
+                            {1,9,5}};
+        int result = rcb.maximumWealth(accounts);
+        Assertions.assertEquals(17, result);
     }
 
     @AfterEach
