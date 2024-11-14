@@ -10,6 +10,7 @@ class PrimeNumberGeneratorTest {
     @Test
     void successPrimilatyTestBasedOnRangeOfPrimeNumbersGenerated() {
         List<Integer> primeNumbers = PrimeNumberGenerator.generatePrimeNumbers(2);
+        Assertions.assertEquals(1, primeNumbers.size());
         Assertions.assertTrue(checkPrime(primeNumbers));
     }
 

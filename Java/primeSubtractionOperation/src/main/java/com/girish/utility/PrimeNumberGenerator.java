@@ -29,6 +29,7 @@ public final class PrimeNumberGenerator {
 
             if(limit == 2) {
                 primeNumbers.add(2);
+                log.info("Prime numbers for limit: {} is: {}", limit, primeNumbers);
                 return primeNumbers;
             }
 
@@ -48,8 +49,8 @@ public final class PrimeNumberGenerator {
                     .filter(i -> isPrime[i])
                     .boxed()
                     .collect(Collectors.toList());
+            log.info("Prime numbers for limit: {} is: {}", limit, primeNumbers);
         }
-        log.info("Prime numbers for limit: {} is: {}", limit, primeNumbers);
 
         return primeNumbers;
     }
