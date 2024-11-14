@@ -21,15 +21,16 @@ public final class PrimeNumberGenerator {
         log.info("Checking limit range....");
         if (limit <= 1 || limit > 1000) {
             log.error("Limit range failed!");
-            String errorMsg;
-            if(limit <=1 ) {
-                errorMsg = "There are no Prime numbers below the number 1, please try to enter a number between 2 - 1000";
-            } else {
-                errorMsg = "This program does not generate prime numbers above 1000, please try to enter a number between 2 - 1000";
-            }
+            String errorMsg = "There are no Prime numbers below the number 1 and the program does not generate prime numbers above 1000 please try to enter a number between 2 - 1000";
             throw new IllegalArgumentException(errorMsg);
         } else {
             log.info("Limit range passed!");
+            log.info("Generating Prime Numbers for limit {}...", limit);
+
+            if(limit == 2) {
+                primeNumbers.add(2);
+                return primeNumbers;
+            }
 
             boolean[] isPrime = new boolean[limit];
 
@@ -37,9 +38,7 @@ public final class PrimeNumberGenerator {
 
             for (int i = 2; i <= ((int) Math.sqrt(limit)); i++) {
                 if (isPrime[i]) {
-                    int k = i*i;
-                    int l = 1;
-                    for (int j = k; j < limit; j = k + (l*i), l++) {
+                    for (int j = i*i; j < limit; j += i) {
                         isPrime[j] = false;
                     }
                 }
@@ -49,9 +48,8 @@ public final class PrimeNumberGenerator {
                     .filter(i -> isPrime[i])
                     .boxed()
                     .collect(Collectors.toList());
-
-            log.info("Prime numbers for limit: {} is: {}", limit, primeNumbers);
         }
+        log.info("Prime numbers for limit: {} is: {}", limit, primeNumbers);
 
         return primeNumbers;
     }

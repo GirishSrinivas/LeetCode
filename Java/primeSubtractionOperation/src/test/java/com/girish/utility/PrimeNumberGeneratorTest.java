@@ -9,7 +9,7 @@ class PrimeNumberGeneratorTest {
 
     @Test
     void successPrimilatyTestBasedOnRangeOfPrimeNumbersGenerated() {
-        List<Integer> primeNumbers = PrimeNumberGenerator.generatePrimeNumbers(6);
+        List<Integer> primeNumbers = PrimeNumberGenerator.generatePrimeNumbers(2);
         Assertions.assertTrue(checkPrime(primeNumbers));
     }
 
@@ -23,7 +23,7 @@ class PrimeNumberGeneratorTest {
     void primeTestWhenLowestRangeLimitSpecifiedForPrimeNumberGeneration() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> PrimeNumberGenerator.generatePrimeNumbers(1));
 
-        String expectedMessage = "There are no Prime numbers below the number 1, please try to enter a number between 2 - 1000";
+        String expectedMessage = "There are no Prime numbers below the number 1 and the program does not generate prime numbers above 1000 please try to enter a number between 2 - 1000";
         String actualMessage = exception.getMessage();
         Assertions.assertTrue(actualMessage.contains(expectedMessage));
     }
@@ -32,7 +32,7 @@ class PrimeNumberGeneratorTest {
     void primeTestWhenHighestRangeLimitSpecifiedForPrimeNumberGeneration() {
         Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> PrimeNumberGenerator.generatePrimeNumbers(2000));
 
-        String expectedMessage = "This program does not generate prime numbers above 1000, please try to enter a number between 2 - 1000";
+        String expectedMessage = "There are no Prime numbers below the number 1 and the program does not generate prime numbers above 1000 please try to enter a number between 2 - 1000";
         String actualMessage = exception.getMessage();
         Assertions.assertTrue(actualMessage.contains(expectedMessage));
     }

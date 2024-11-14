@@ -1,5 +1,7 @@
 # [2601. Prime Subtraction Operation](https://leetcode.com/problems/prime-subtraction-operation/description/)
 
+```Difficult level: MEDIUM```
+
 You are given a 0-indexed integer array nums of length n.
 
 You can perform the following operation as many times as you want:
